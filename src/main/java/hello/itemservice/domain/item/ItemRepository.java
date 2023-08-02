@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 @Repository
 public class ItemRepository {
+    // 여러 쓰레드가 동시에 접근하는 경우 ConcurrentHashMap 사용하기
     private static final Map<Long, Item> store = new HashMap<>(); //static 사용
+    // 여러 스레가 동시 접근시 값이 꼬일수 있음 AtomicLong 사용
     private static long sequence = 0L; //static 사용
     public Item save(Item item) {
         item.setId(++sequence);
