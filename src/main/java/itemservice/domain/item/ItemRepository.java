@@ -1,4 +1,4 @@
-package hello.itemservice.domain.item;
+package itemservice.domain.item;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.HashMap;
