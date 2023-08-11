@@ -60,8 +60,17 @@ public class BasicItemController {
         return "basic/item";
     }
 
+    //@PostMapping("/add")
+    public String addItemV3(Item item) {
+
+        itemRepository.save(item);
+        //model.addAttribute("item", item);
+
+        return "basic/item";
+    }
+
     @PostMapping("/add")
-    public String addItemV3(@ModelAttribute("item")Item item, RedirectAttributes redirectAttributes) {
+    public String addItemV4(@ModelAttribute("item")Item item, RedirectAttributes redirectAttributes) {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
